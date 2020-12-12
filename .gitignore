@@ -2,6 +2,7 @@
 *.cnf
 *.db
 # CLEANLINESS: Ignore temporary files
+backups/*
 # CONSCIENTIOUSNESS: Ignore large files (include a script to download or generate them instead)
 *.sql
 

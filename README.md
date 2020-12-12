@@ -12,7 +12,7 @@ Genshin DBMS project
 [Setup]
 1. Specifying database connection
 
-Certain functionalities in this framework require a specially formatted *.db file. For each line in this file, specify a MySQL command line argument, colon, and the appropriate value, such as given below:
+Certain functionalities in this framework require a specially formatted `*.db` file. For each line in this file, specify a MySQL command line argument, colon, and the appropriate value, such as given below:
 
 ```
 	user: tlranda
@@ -20,22 +20,21 @@ Certain functionalities in this framework require a specially formatted *.db fil
 	password: Y0uW!$h
 ```
 
-This structure supports all MySQL command line options, including the specification of a more traditional *.cnf options file ([Refer to the MySQL 8.0 Documentation](https://dev.mysql.com/doc/refman/8.0/en/option-files.html)), however the options in the example above should be the minimum information directly included in your *.db as the current script is not capable of extracting parameters from option files.
+This structure supports all MySQL command line options, including the specification of a more traditional `*.cnf` options file (refer to the [option files docs](https://dev.mysql.com/doc/refman/8.0/en/option-files.html)), however the options in the example above should be the minimum information directly included in your `*.db` as the current script is not capable of extracting parameters from option files.
 
 2. Initializing the database structure
 
-	Handle via Python API: `g = genshin('credentials.db', initialize_db=True, structure='genshin.sql')`
+	Handle via Python API: `python3 db.py credentials.db --initialize --structure genshin.sql`
+
+	Handle via Python API in code: `g = genshin('credentials.db', initialize_db=True, structure='genshin.sql')`
 
 	Handle via command line: `mysql --user=<USER> --password=<PASSWORD> < genshin.sql`
 
 	Either of these methods are equivalent.
 
-3. Populating saved data (optional)
-
-<TBD>
-
 4. Operating on DB via Python
 
+	For any valid .sql script, 
 <TBD>
 
 5. Generating plots
@@ -44,7 +43,9 @@ This structure supports all MySQL command line options, including the specificat
 
 6. Backing up the Database
 
-	Handle via Python API: `g = genshin('credentials.db'); g.backup('backup.sql')`
+	Handle via Python API: `python3 db.py credentials.db --backup backup.sql --backup-frequency endpoints`
+
+	Handle via Python API in code: `g = genshin('credentials.db'); g.backup('backup.sql')`
 
 	Handle via command line: `mysqldump --user=<USER> --password=<PASSWORD> --databases genshin > backup.sql`
 

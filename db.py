@@ -1,4 +1,51 @@
 import mysql.connector as mysql, os, subprocess
+from argparse import ArgumentParser as AP
+
+# Build command line arguments
+def build():
+	p = AP()
+	p.add_argument("credentials", metavar="*.db", type=str,
+				   help="Credential file (minimum requirement: username, password, database)")
+	p.add_argument("--execute", metavar="*.sql|*.txt", type=str, default=[], action='append',
+				   help="Scripts and files to execute (*.sql) or interpret (*.txt)")
+	p.add_argument("--sqlify", type=str, default=None,
+				   help="Path to save SQL interpretations of *.txt files to (not saved if not specified)")
+	p.add_argument("--backup", metavar="*.sql", type=str, default=None,
+				   help="FilePath to push backups to")
+	p.add_argument("--backup-frequency", choices=["never", "endpoints", "every"], default="never",
+				   help="How often to save a backup (endpoints=start and finish; every=after execution) (default: never)")
+	p.add_argument("--structure", metavar="*.sql", type=str, default=None,
+				   help="File defining minimum DB state")
+	p.add_argument("--initialize", action="store_true",
+				   help="Reset DB using <args.structure> file")
+	p.add_argument("--warnings", action="store_true",
+				   help="Emit warnings out loud")
+	p.add_argument("--delay_connection", action="store_true",
+				   help="Do not immediately connect to DB")
+	p.add_argument("-mysql", type=str, default='mysql',
+				   help="MySQL executable to use (default: mysql)")
+	p.add_argument("-mysqldump", type=str, default='mysqldump',
+				   help="MySQLDump executable to use (default: mysqldump)")
+	return p
+
+# Parse command line arguments
+def parse(p, a=None):
+	if a is None:
+		a = p.parse_args()
+	else:
+		# If string, convert to list
+		if type(a) is str:
+			a = a.split(' ')
+		# Interactive mode may miss globbing
+		from glob import glob
+		globbed = []
+		for arg in a:
+			if '*' in arg:
+				globbed.extend(glob(arg))
+			else:
+				globbed.append(arg)
+		a = p.parse_args(globbed)
+	return a
 
 # Module-level file parsing to read credentials
 def parse_db_credentials(fname, warn=True):
@@ -43,6 +90,7 @@ class genshin(object):
 		self.db = None
 		self.mysql = mysql
 		self.mysqldump = mysqldump
+		self.backup_count = 0
 		# Parse options
 		self.structure = structure
 		if as_options:
@@ -56,13 +104,13 @@ class genshin(object):
 			  raise ValueError(f"Cannot initialize connection with type '{type(credentials)}'")
 		# Reinitialization Check
 		if initialize_db and structure is not None:
-			structure_exists = self.recreate_structure(structure)
+			structure_exists = self.execute(structure)
 		# Connection
 		if not delay_connect:
 			self.db = db_wrapper(self.creds, as_options=False, warnings=warnings)
 
-	# Use command line redirection to create basic SQL DB structure, return whether operation is successful or not
-	def recreate_structure(self, fname):
+	# Use command line redirection to run arbitrary SQL, return whether operation is successful or not
+	def execute(self, fname):
 		command = [self.mysql,
 				   '--user='+self.creds['user'],
 				   '--password='+self.creds['password']]
@@ -81,6 +129,9 @@ class genshin(object):
 				   '--user='+self.creds['user'],
 				   '--password='+self.creds['password'],
 				   '--databases', 'genshin']
+		# Modify fname with versioning
+		fname = fname[:fname.index('.sql')]+'_'+str(self.backup_count)+'.sql'
+		self.backup_count = self.backup_count + 1
 		with open(fname, 'w') as f:
 			process = subprocess.run(command, stdout=f, stderr=subprocess.PIPE)
 			if process.returncode != 0:
@@ -231,4 +282,21 @@ class db_wrapper(object):
 		# At some point have to commit to database with connection.commit()
 		self.conn.commit()
 		return result
+
+if __name__ == '__main__':
+	args = parse(build())
+	g = genshin(args.credentials, warnings=args.warnings, structure=args.structure,
+				initialize_db=args.initialize, delay_connect=args.delay_connection,
+				mysql=args.mysql, mysqldump=args.mysqldump)
+	if args.backup_frequency != "never" and args.backup is not None:
+		g.backup(args.backup)
+	for script in args.execute:
+		if script.endswith('.sql'):
+			g.execute(script)
+		elif script.endswith('.txt'):
+			g.interpret(script, args.sqlify)
+		else:
+			print(f"Unrecognized execution extension: {script[script.index('.'):]} for {script}")
+		if args.backup_frequency == "every" and args.backup is not None:
+			g.backup(args.backup)
 
