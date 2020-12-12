@@ -21,18 +21,28 @@ Genshin DBMS project
 ```
 
 2. Initializing the database structure
-	<TBD>
+
+<TBD>
+
 3. Populating saved data (optional)
-	<TBD>
+
+<TBD>
+
 4. Adding additional data via Python
-	<TBD>
+
+<TBD>
+
 5. Generating plots
-	<TBD>
+
+<TBD>
 
 [Further Documentation and Examples]
+
 db.py: See comments in script or higher-level design goals in <TBD>
 
 [Contributors]
+
 Please add your name to this list if you are approved for a merge:
+
 Thomas Randall
 
