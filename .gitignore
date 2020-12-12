@@ -1,0 +1,6 @@
+# PRIVACY: Don't let people upload configurations and other sensitive tiles
+*.cnf
+*.db
+# CLEANLINESS: Ignore temporary files
+# CONSCIENTIOUSNESS: Ignore large files (include a script to download or generate them instead)
+
