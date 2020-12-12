@@ -1,4 +1,4 @@
-import mysql.connector as mysql, os
+import mysql.connector as mysql, os, subprocess
 
 # Module-level file parsing to read credentials
 def parse_db_credentials(fname, warn=True):
@@ -34,6 +34,74 @@ def parse_db_credentials(fname, warn=True):
 	# Return initialized values only
 	return dict((k,v) for k,v in zip(creds.keys(), creds.values()) if v is not None)
 
+class genshin(object):
+	def __init__(self, credentials, as_options=False, warnings=True,
+					   initialize_db=False, structure=None,
+					   mysql='mysql', mysqldump='mysqldump', delay_connect=False):
+		# Object's own data
+		self.error = False
+		self.db = None
+		self.mysql = mysql
+		self.mysqldump = mysqldump
+		# Parse options
+		self.structure = structure
+		if as_options:
+			self.creds = {'option_files': credentials}
+		else:
+		  if type(credentials) is dict:
+			  self.creds = credentials
+		  elif type(credentials) is str:
+			  self.creds = parse_db_credentials(credentials, warn=warnings)
+		  else:
+			  raise ValueError(f"Cannot initialize connection with type '{type(credentials)}'")
+		# Reinitialization Check
+		if initialize_db and structure is not None:
+			structure_exists = self.recreate_structure(structure)
+		# Connection
+		if not delay_connect:
+			self.db = db_wrapper(self.creds, as_options=False, warnings=warnings)
+
+	# Use command line redirection to create basic SQL DB structure, return whether operation is successful or not
+	def recreate_structure(self, fname):
+		command = [self.mysql,
+				   '--user='+self.creds['user'],
+				   '--password='+self.creds['password']]
+		with open(fname, 'r') as f:
+			process = subprocess.run(command, stdin=f, capture_output=True)
+			if process.returncode != 0:
+				print(process.returncode)
+				print(process.stderr)
+				print(command)
+				self.error = True
+		return self.error
+
+	# Use command line redirection to create basic SQL DB backup, return whether operation is successful or not
+	def backup(self, fname):
+		command = [self.mysqldump,
+				   '--user='+self.creds['user'],
+				   '--password='+self.creds['password'],
+				   '--databases', 'genshin']
+		with open(fname, 'w') as f:
+			process = subprocess.run(command, stdout=f, stderr=subprocess.PIPE)
+			if process.returncode != 0:
+				print(process.returncode)
+				print(process.stderr)
+				print(command)
+				self.error = True
+		return self.error
+
+	# Mark error as handled
+	def clearError(self):
+		self.error = False
+
+	# Mark db error as handled
+	def clearDBError(self):
+		self.db.errorState = False
+
+	def __del__(self):
+		del self.db
+
+# Make MySQL API more convenient to use
 class db_wrapper(object):
 	# Create connection upon initialization
 	def __init__(self, db_credentials, as_options=False, warnings=True):
@@ -53,6 +121,10 @@ class db_wrapper(object):
 		# Connect using info
 		self.connect()
 
+	# Properly shut down connection
+	def __del__(self):
+		self.disconnect()
+
 	# Activate connection
 	def connect(self):
 		try:
@@ -71,6 +143,10 @@ class db_wrapper(object):
 			self.conn.close()
 			self.cursor = None
 			self.proccursor = None
+
+	# Mark error as handled
+	def clearError(self):
+		self.errorState = False
 
 	# Get auto_increment value if it was used, None means it wasn't
 	def lastrowid(self):
@@ -142,6 +218,7 @@ class db_wrapper(object):
 		self.conn.commit()
 		return results, affected, warned
 
+	# Call procedure, returns dictionary with named variables and values from tups
 	def procedure(self, procedurename, tups=tuple()):
 		try:
 			result = self.proccursor.callproc(procedurename, tups)
@@ -154,8 +231,4 @@ class db_wrapper(object):
 		# At some point have to commit to database with connection.commit()
 		self.conn.commit()
 		return result
-
-	# Properly shut down connection
-	def __del__(self):
-		self.disconnect()
 
