@@ -13,11 +13,13 @@ Genshin DBMS project
 1. Specifying database connection
 	You may utilize a standard MySQL *.cnf options file ([Refer to the MySQL 8.0 Documentation](https://dev.mysql.com/doc/refman/8.0/en/option-files.html)) or a *.db file as specified below:
 		For each line in the file, specify a mysql command line argument, colon, and the appropriate value, such as given below:
-			```
-			user: tlranda
-			database: genshin
-			password: Y0uW!$h
-			```
+
+```
+	user: tlranda
+	database: genshin
+	password: Y0uW!$h
+```
+
 2. Initializing the database structure
 	<TBD>
 3. Populating saved data (optional)
