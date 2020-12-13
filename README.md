@@ -10,6 +10,8 @@ Genshin DBMS project
 	* Matplotlib
 
 [Setup]
+0. Create a MySQL server to host the DB.
+
 1. Specifying database connection
 
 Certain functionalities in this framework require a specially formatted `*.db` file. For each line in this file, specify a MySQL command line argument, colon, and the appropriate value, such as given below:
@@ -34,8 +36,11 @@ This structure supports all MySQL command line options, including the specificat
 
 4. Operating on DB via Python
 
-	For any valid .sql script, 
-<TBD>
+	For any valid .sql scripts: `python3 db.py credentials.db --execute script1.sql script2.sql ...`
+
+	For any interpretable .txt files: `python3 db.py credentials.db --execute interp1.txt interp2.txt ...`
+
+		Optional: Save interpretation as .sql script by adding `--sqlify path/basename`
 
 5. Generating plots
 

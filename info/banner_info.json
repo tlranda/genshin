@@ -1,0 +1,723 @@
+{
+  "1": {
+    "table": "banners",
+    "class": {
+      "1": {
+        "version": {
+          "1": {
+            "name": "Permanent",
+            "start": "2020-09-28",
+            "end": "2020-12-22"
+          }
+        }
+      },
+      "2": {
+        "version": {
+          "1": {
+            "name": "Ballad in Goblets",
+            "start": "2020-09-28",
+            "end": "2020-10-20",
+            "comment": "Debut of Venti"
+          },
+          "2": {
+            "name": "Sparkling Steps",
+            "start": "2020-10-20",
+            "end": "2020-11-09",
+            "comment": "Debut of Klee"
+          },
+          "3": {
+            "name": "Farwell of Snezhnaya",
+            "start": "2020-11-11",
+            "end": "2020-12-01",
+            "comment": "Debut of Tartaglia and Diona"
+          },
+          "4": {
+            "name": "Gentry of Hermitage",
+            "start": "2020-12-02",
+            "end": "2020-12-22",
+            "comment": "Debut of Zhongli and Xinyan"
+          }
+        }
+      },
+      "3": {
+        "version": {
+          "1": {
+            "name": "Epitome Invocation 1",
+            "start": "2020-09-28",
+            "end": "2020-10-20"
+          },
+          "2": {
+            "name": "Epitome Invocation 2",
+            "start": "2020-10-20",
+            "end": "2020-11-11"
+          },
+          "3": {
+            "name": "Epitome Invocation 3",
+            "start": "2020-11-11",
+            "end": "2020-11-30",
+            "comment": "Debut of Memory of Dust"
+          },
+          "4": {
+            "name": "Epitome Invocation 4",
+            "start": "2020-12-02",
+            "end": "2020-12-22",
+            "comment": "Debut of Vortex Vanquisher and The Unforged"
+          }
+        }
+      }
+    }
+  },
+  "2": {
+    "table": "gacha_items",
+    "1": {
+      "rarity": 3,
+      "type": {
+		"weapon": {
+		  "subtype": {
+			"bow": [
+			  "slingshot",
+			  "sharpshooter’s oath",
+			  "raven bow"
+			],
+			"catalyst": [
+			  "emerald orb",
+			  "thrilling tales of dragon slayers",
+			  "magic guide"
+			],
+			"claymore": [
+			  "debate club",
+			  "bloodtainted greatsword",
+			  "ferrous shadow"
+			],
+			"polearm": [
+			  "black tassel"
+			],
+			"sword": [
+			  "skyrider sword",
+			  "harbinger of dawn",
+			  "cool steel"
+			]
+		  }
+        }
+      }
+	},
+	"2": {
+	  "rarity": 4,
+	  "type": {
+		"character": {
+		  "subtype": {
+			"mondstadt": [
+			  "fischl",
+			  "barbara",
+			  "sucrose",
+			  "noelle",
+			  "bennett",
+			  "razor",
+			  "amber",
+			  "kaeya",
+			  "lisa",
+			  "diona"
+			],
+			"liyue": [
+			  "xiangling",
+			  "chongyun",
+			  "ningguang",
+			  "xingqiu",
+			  "beidou",
+			  "xinyan"
+			],
+			"inazuma": [],
+			"sumeru": [],
+			"fontaine": [],
+			"natlan": [],
+			"snezhnaya": []
+		  }
+		},
+		"weapon": {
+		  "subtype": {
+			"bow": [
+			  "rust",
+			  "sacrificial bow",
+			  "the stringless",
+			  "favonius warbow"
+			],
+			"catalyst": [
+			  "eye of perception",
+			  "sacrificial fragments",
+			  "the widsith",
+			  "favonius codex"
+			],
+			"claymore": [
+			  "rainslasher",
+			  "sacrificial greatsword",
+			  "the bell",
+			  "favonius greatsword"
+			],
+			"polearm": [
+			  "favonius lance",
+			  "dragon's bane"
+			],
+			"sword": [
+			  "lion's roar",
+			  "sacrificial sword",
+			  "the flute",
+			  "favonius sword"
+			]
+		  }
+		}
+      }
+	},
+	"3": {
+      "rarity": 5,
+	  "type": {
+		"character": {
+		  "subtype": {
+			"mondstadt": [
+			  "mona",
+			  "diluc",
+			  "jean",
+			  "venti",
+			  "klee"
+			],
+			"liyue": [
+			  "kequing",
+			  "qiqi",
+			  "zhongli"
+			],
+			"inazuma": [],
+			"sumeru": [],
+			"fontaine": [],
+			"natlan": [],
+			"snezhnaya": [
+			  "tartaglia"
+			]
+		  }
+		},
+		"weapon": {
+		  "subtype": {
+			"bow": [
+			  "amos' bow",
+			  "skyward harp"
+			],
+			"catalyst": [
+			  "lost prayer to the sacred winds",
+			  "skwyard atlas",
+			  "memory of dust"
+			],
+			"claymore": [
+			  "wolf's gravestone",
+			  "skyward pride",
+			  "the unforged"
+			],
+			"polearm": [
+			  "primordial jade-winged spear",
+			  "skyward spine",
+			  "vortex vanquisher"
+			],
+			"sword": [
+			  "skyward blade",
+			  "aquila favonia"
+			]
+		  }
+		}
+	  }
+    }
+  },
+  "3": {
+    "table": "drops",
+	"1": {
+	  "class": 1,
+	  "version": 1,
+	  "promoted": 0,
+	  "drops": [
+		"kequing",
+		"mona",
+		"qiqi",
+		"diluc",
+		"jean",
+		"amos' bow",
+		"skwyard harp",
+		"lost prayer to the sacred winds",
+		"skyward atlas",
+		"primordial jade-winged spear",
+		"wolf's gravestone",
+		"skyward pride",
+		"skyward blade",
+		"aquila favonia",
+		"fischl",
+		"xiangling",
+		"barbara",
+		"sucrose",
+		"chongyun",
+		"noelle",
+		"bennett",
+		"ningguang",
+		"xingqiu",
+		"beidou",
+		"razor",
+		"amber",
+		"kaeya",
+		"lisa",
+		"rust",
+		"sacrificial bow",
+		"the stringless",
+		"favonius warbow",
+		"eye of perception",
+		"sacrificial fragments",
+		"the widsith",
+		"favonius codex",
+		"favonius lance",
+		"dragon's bane",
+		"rainslasher",
+		"sacrificial greatsword",
+		"the flute",
+		"favonius sword",
+		"slingshot",
+		"sharpshooter's oath",
+		"raven bow",
+		"emerald orb",
+		"thrilling tales of dragon slayers",
+		"magic guide",
+		"black tassel",
+		"debate club",
+		"bloodtainted greatsword",
+		"ferrous shadow",
+		"skyrider sword",
+		"harbinger of dawn",
+		"cool steel"
+	  ]
+	},
+	"2": {
+	  "class": 2,
+	  "version": 1,
+	  "promoted": 4,
+	  "drops": [
+		"venti",
+		"fischl",
+		"xiangling",
+		"barbara",
+		"kequing",
+		"mona",
+		"qiqi",
+		"diluc",
+		"jean",
+		"sucrose",
+		"chongyun",
+		"noelle",
+		"bennett",
+		"ningguang",
+		"xingqiu",
+		"beidou",
+		"razor",
+		"rust",
+		"sacrificial bow",
+		"the stringless",
+		"favonius warbow",
+		"eye of perception",
+		"sacrificial fragments",
+		"the widsith",
+		"favonius codex",
+		"favonius lance",
+		"dragon's bane",
+		"rainslasher",
+		"sacrificial greatsword",
+		"the bell",
+		"favonius greatsword",
+		"lion's roar",
+		"sacrificial sword",
+		"the flute",
+		"favonius sword",
+		"slingshot",
+		"sharpshooter's oath",
+		"raven bow",
+		"emerald orb",
+		"thrilling tales of dragon slayers",
+		"magic guide",
+		"black tassel",
+		"debate club",
+		"bloodtainted greatsword",
+		"ferrous shadow",
+		"skyrider sword",
+		"harbinger of dawn",
+		"cool steel"
+	  ]
+	},
+	"3": {
+	  "class": 2,
+	  "version": 2,
+	  "promoted": 4,
+	  "drops": [
+		"klee",
+		"noelle",
+		"sucrose",
+		"xingqiu",
+		"kequing",
+		"mona",
+		"qiqi",
+		"diluc",
+		"jean",
+		"fischl",
+		"xiangling",
+		"barbara",
+		"chongyun",
+		"bennett",
+		"ningguang",
+		"beidou",
+		"razor",
+		"rust",
+		"sacrificial bow",
+		"the stringless",
+		"favonius warbow",
+		"eye of perception",
+		"sacrificial fragments",
+		"the widsith",
+		"favonius codex",
+		"favonius lance",
+		"dragon's bane",
+		"rainslasher",
+		"sacrificial greatsword",
+		"the bell",
+		"favonius greatsword",
+		"lion's roar",
+		"sacrificial sword",
+		"the flute",
+		"favonius sword",
+		"slingshot",
+		"sharpshooter's oath",
+		"raven bow",
+		"emerald orb",
+		"thrilling tales of dragon slayers",
+		"magic guide",
+		"black tassel",
+		"debate club",
+		"bloodtainted greatsword",
+		"ferrous shadow",
+		"skyrider sword",
+		"harbinger of dawn",
+		"cool steel"
+	  ]
+	},
+	"4": {
+	  "class": 2,
+	  "version": 3,
+	  "promoted": 4,
+	  "drops": [
+		"tartaglia",
+		"diona",
+		"beidou",
+		"ningguang",
+		"kequing",
+		"mona",
+		"qiqi",
+		"diluc",
+		"jean",
+		"noelle",
+		"fischl",
+		"xiangling",
+		"barbara",
+		"sucrose",
+		"chongyun",
+		"bennett",
+		"xingqiu",
+		"razor",
+		"rust",
+		"sacrificial bow",
+		"the stringless",
+		"favonius warbow",
+		"eye of perception",
+		"sacrificial fragments",
+		"the widsith",
+		"favonius codex",
+		"favonius lance",
+		"dragon's bane",
+		"rainslasher",
+		"sacrificial greatsword",
+		"the bell",
+		"favonius greatsword",
+		"lion's roar",
+		"sacrificial sword",
+		"the flute",
+		"favonius sword",
+		"slingshot",
+		"sharpshooter's oath",
+		"raven bow",
+		"emerald orb",
+		"thrilling tales of dragon slayers",
+		"magic guide",
+		"black tassel",
+		"debate club",
+		"bloodtainted greatsword",
+		"ferrous shadow",
+		"skyrider sword",
+		"harbinger of dawn",
+		"cool steel"
+	  ]
+	},
+	"5": {
+	  "class": 2,
+	  "version": 4,
+	  "promoted": 4,
+	  "drops": [
+		"zhongli",
+		"xinyan",
+		"chongyun",
+		"razor",
+		"kequing",
+		"mona",
+		"qiqi",
+		"diluc",
+		"jean",
+		"ningguang",
+		"noelle",
+		"fischl",
+		"xiangling",
+		"barbara",
+		"sucrose",
+		"bennett",
+		"xingqiu",
+		"beidou",
+		"rust",
+		"sacrificial bow",
+		"the stringless",
+		"favonius warbow",
+		"eye of perception",
+		"sacrificial fragments",
+		"the widsith",
+		"favonius codex",
+		"favonius lance",
+		"dragon's bane",
+		"rainslasher",
+		"sacrificial greatsword",
+		"the bell",
+		"favonius greatsword",
+		"lion's roar",
+		"sacrificial sword",
+		"the flute",
+		"favonius sword",
+		"slingshot",
+		"sharpshooter's oath",
+		"raven bow",
+		"emerald orb",
+		"thrilling tales of dragon slayers",
+		"magic guide",
+		"black tassel",
+		"debate club",
+		"bloodtainted greatsword",
+		"ferrous shadow",
+		"skyrider sword",
+		"harbinger of dawn",
+		"cool steel"
+	  ]
+	},
+	"6": {
+	  "class": 3,
+	  "version": 1,
+	  "promoted": 7,
+	  "drops": [
+		"amos' bow",
+		"aquila favonia",
+		"the stringless",
+		"the widsith",
+		"favonius lance",
+		"the bell",
+		"the flute",
+		"skyward harp",
+		"skyward atlas",
+		"skyward spine",
+		"skyward pride",
+		"lost prayer to the sacred winds",
+		"primordial jade winged-spear",
+		"wolf's gravestone",
+		"skyward blade",
+		"sucrose",
+		"chongyun",
+		"noelle",
+		"bennett",
+		"fischl",
+		"ningguang",
+		"xingqiu",
+		"beidou",
+		"xiangling",
+		"razor",
+		"barbara",
+		"slingshot",
+		"sharpshooter's oath",
+		"raven bow",
+		"emerald orb",
+		"thrilling tales of dragon slayers",
+		"magic guide",
+		"black tassel",
+		"debate club",
+		"bloodtainted greatsword",
+		"ferrous shadow",
+		"skyrider sword",
+		"harbinger of dawn",
+		"cool steel"
+	  ]
+    },
+    "7": {
+	  "class": 3,
+	  "version": 2,
+	  "promoted": 7,
+	  "drops": [
+		"lost prayer to the sacred winds",
+		"wolf's gravestone",
+		"sacrificial greatsword",
+		"sacrificial bow",
+		"sacrificial fragments",
+		"sacrificial sword",
+		"dragon's bane",
+		"amos' bow",
+		"aquila favonia",
+		"skyward harp",
+		"skyward atlas",
+		"skyward spine",
+		"primordial jade winged-spear",
+		"skyward blade",
+		"sucrose",
+		"chongyun",
+		"noelle",
+		"bennett",
+		"fischl",
+		"ningguang",
+		"xingqiu",
+		"beidou",
+		"xiangling",
+		"razor",
+		"barbara",
+		"slingshot",
+		"sharpshooter's oath",
+		"raven bow",
+		"emerald orb",
+		"thrilling tales of dragon slayers",
+		"magic guide",
+		"black tassel",
+		"debate club",
+		"bloodtainted greatsword",
+		"ferrous shadow",
+		"skyrider sword",
+		"harbinger of dawn",
+		"cool steel"
+	  ]
+	},
+	"8": {
+	  "class": 3,
+	  "version": 3,
+	  "promoted": 7,
+	  "drops": [
+		"skyward harp",
+		"memory of dust",
+		"rust",
+		"the flute",
+		"favonius lance",
+		"eye of perception",
+		"rainslasher",
+		"amos' bow",
+		"lost prayer to the sacred winds",
+		"skyward atlas",
+		"primordial jade winged-spear",
+		"skyward spine",
+		"skyward blade",
+		"aquila favonia",
+		"sacrificial sword",
+		"sacrificial greatsword",
+		"sacrificial fragments",
+		"sacrificial bow",
+		"dragon's bane",
+		"the stringless",
+		"the widsith",
+		"favonius warbow",
+		"favonius codex",
+		"the bell",
+		"lion's roar",
+		"favonius greatsword",
+		"favonius sword",
+		"sucrose",
+		"chongyun",
+		"noelle",
+		"bennett",
+		"fischl",
+		"ningguang",
+		"xingqiu",
+		"beidou",
+		"xiangling",
+		"razor",
+		"barbara",
+		"slingshot",
+		"sharpshooter's oath",
+		"raven bow",
+		"emerald orb",
+		"thrilling tales of dragon slayers",
+		"magic guide",
+		"black tassel",
+		"debate club",
+		"bloodtainted greatsword",
+		"ferrous shadow",
+		"skyrider sword",
+		"harbinger of dawn",
+		"cool steel"
+	  ]
+	},
+	"9": {
+	  "class": 3,
+	  "version": 4,
+	  "promoted": 7,
+	  "drops": [
+		"vortex vanquisher",
+		"the unforged",
+		"favonius warbow",
+		"favonius codex",
+		"dragon's bane",
+		"the bell",
+		"lion's roar",
+		"amos' bow",
+		"skyward harp",
+		"lost prayer to the sacred winds",
+		"skyward atlas",
+		"primordial jade winged-spear",
+		"skyward spine",
+		"wolf's gravestone",
+		"skyward pride",
+		"skyward blade",
+		"aquila favonia",
+		"rust",
+		"sacrificial bow",
+		"the stringless",
+		"eye of perception",
+		"sacrificial fragments",
+		"the widsith",
+		"favonius lance",
+		"rainslasher",
+		"sacrificial greatsword",
+		"favonius greatsword",
+		"sacrificial sword",
+		"the flute",
+		"favonius sword",
+		"sucrose",
+		"chongyun",
+		"noelle",
+		"bennett",
+		"fischl",
+		"ningguang",
+		"xingqiu",
+		"beidou",
+		"xiangling",
+		"razor",
+		"barbara",
+		"slingshot",
+		"sharpshooter's oath",
+		"raven bow",
+		"emerald orb",
+		"thrilling tales of dragon slayers",
+		"magic guide",
+		"black tassel",
+		"debate club",
+		"bloodtainted greatsword",
+		"ferrous shadow",
+		"skyrider sword",
+		"harbinger of dawn",
+		"cool steel"
+	  ]
+	}
+  }
+}
